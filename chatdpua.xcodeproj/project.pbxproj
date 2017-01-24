@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC1AD33B1E37C8200062EFD1 /* SuperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1AD33A1E37C8200062EFD1 /* SuperTableViewCell.swift */; };
+		AC1AD33D1E37C8AD0062EFD1 /* SuperTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1AD33C1E37C8AD0062EFD1 /* SuperTableViewController.swift */; };
+		AC1AD33F1E37FE830062EFD1 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1AD33E1E37FE830062EFD1 /* ChatTableViewCell.swift */; };
+		AC1AD3411E37FEB50062EFD1 /* ChatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1AD3401E37FEB50062EFD1 /* ChatTableViewController.swift */; };
 		ACDB7A1D1E3766C90052D834 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDB7A1C1E3766C90052D834 /* AppDelegate.swift */; };
-		ACDB7A1F1E3766C90052D834 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDB7A1E1E3766C90052D834 /* FirstViewController.swift */; };
-		ACDB7A211E3766C90052D834 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDB7A201E3766C90052D834 /* SecondViewController.swift */; };
 		ACDB7A241E3766C90052D834 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACDB7A221E3766C90052D834 /* Main.storyboard */; };
 		ACDB7A261E3766C90052D834 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACDB7A251E3766C90052D834 /* Assets.xcassets */; };
 		ACDB7A291E3766C90052D834 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACDB7A271E3766C90052D834 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC1AD33A1E37C8200062EFD1 /* SuperTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperTableViewCell.swift; sourceTree = "<group>"; };
+		AC1AD33C1E37C8AD0062EFD1 /* SuperTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperTableViewController.swift; sourceTree = "<group>"; };
+		AC1AD33E1E37FE830062EFD1 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		AC1AD3401E37FEB50062EFD1 /* ChatTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewController.swift; sourceTree = "<group>"; };
 		ACDB7A191E3766C90052D834 /* chatdpua.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chatdpua.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACDB7A1C1E3766C90052D834 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ACDB7A1E1E3766C90052D834 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		ACDB7A201E3766C90052D834 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		ACDB7A231E3766C90052D834 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ACDB7A251E3766C90052D834 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACDB7A281E3766C90052D834 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,10 +41,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		ACDB7A101E3766C90052D834 = {
+		AC1AD3371E37C6E90062EFD1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AC1AD33C1E37C8AD0062EFD1 /* SuperTableViewController.swift */,
+				AC1AD3401E37FEB50062EFD1 /* ChatTableViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		AC1AD3381E37C7320062EFD1 /* wtf */ = {
 			isa = PBXGroup;
 			children = (
 				ACDB7A1B1E3766C90052D834 /* chatdpua */,
+			);
+			name = wtf;
+			sourceTree = "<group>";
+		};
+		AC1AD3391E37C7D70062EFD1 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				AC1AD33A1E37C8200062EFD1 /* SuperTableViewCell.swift */,
+				AC1AD33E1E37FE830062EFD1 /* ChatTableViewCell.swift */,
+			);
+			name = CustomCell;
+			sourceTree = "<group>";
+		};
+		AC1AD3421E37FEDA0062EFD1 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				ACDB7A1C1E3766C90052D834 /* AppDelegate.swift */,
+				ACDB7A271E3766C90052D834 /* LaunchScreen.storyboard */,
+				ACDB7A2A1E3766C90052D834 /* Info.plist */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
+		AC1AD3431E37FFAD0062EFD1 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		ACDB7A101E3766C90052D834 = {
+			isa = PBXGroup;
+			children = (
+				AC1AD3381E37C7320062EFD1 /* wtf */,
 				ACDB7A1A1E3766C90052D834 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,13 +103,12 @@
 		ACDB7A1B1E3766C90052D834 /* chatdpua */ = {
 			isa = PBXGroup;
 			children = (
-				ACDB7A1C1E3766C90052D834 /* AppDelegate.swift */,
-				ACDB7A1E1E3766C90052D834 /* FirstViewController.swift */,
-				ACDB7A201E3766C90052D834 /* SecondViewController.swift */,
-				ACDB7A221E3766C90052D834 /* Main.storyboard */,
+				AC1AD3431E37FFAD0062EFD1 /* Objects */,
 				ACDB7A251E3766C90052D834 /* Assets.xcassets */,
-				ACDB7A271E3766C90052D834 /* LaunchScreen.storyboard */,
-				ACDB7A2A1E3766C90052D834 /* Info.plist */,
+				AC1AD3391E37C7D70062EFD1 /* CustomCell */,
+				AC1AD3371E37C6E90062EFD1 /* Controllers */,
+				ACDB7A221E3766C90052D834 /* Main.storyboard */,
+				AC1AD3421E37FEDA0062EFD1 /* Misc */,
 			);
 			path = chatdpua;
 			sourceTree = "<group>";
@@ -140,9 +186,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACDB7A211E3766C90052D834 /* SecondViewController.swift in Sources */,
+				AC1AD33D1E37C8AD0062EFD1 /* SuperTableViewController.swift in Sources */,
+				AC1AD33B1E37C8200062EFD1 /* SuperTableViewCell.swift in Sources */,
+				AC1AD33F1E37FE830062EFD1 /* ChatTableViewCell.swift in Sources */,
 				ACDB7A1D1E3766C90052D834 /* AppDelegate.swift in Sources */,
-				ACDB7A1F1E3766C90052D834 /* FirstViewController.swift in Sources */,
+				AC1AD3411E37FEB50062EFD1 /* ChatTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +354,7 @@
 				ACDB7A2F1E3766C90052D834 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
