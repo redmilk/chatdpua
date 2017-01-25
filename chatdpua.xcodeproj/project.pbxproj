@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C04FB2B7D32F65664AB119A /* Pods_chatdpua.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC38585C744FF3E295F8FEEF /* Pods_chatdpua.framework */; };
 		AC1AD33B1E37C8200062EFD1 /* SuperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1AD33A1E37C8200062EFD1 /* SuperTableViewCell.swift */; };
 		AC1AD33D1E37C8AD0062EFD1 /* SuperTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1AD33C1E37C8AD0062EFD1 /* SuperTableViewController.swift */; };
 		AC1AD33F1E37FE830062EFD1 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1AD33E1E37FE830062EFD1 /* ChatTableViewCell.swift */; };
 		AC1AD3411E37FEB50062EFD1 /* ChatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1AD3401E37FEB50062EFD1 /* ChatTableViewController.swift */; };
+		AC4A52A91E381085008971FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC4A52A81E381085008971FC /* GoogleService-Info.plist */; };
+		AC8C9B9F1E381552000163B7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8C9B9E1E381552000163B7 /* Post.swift */; };
+		AC8C9BA11E381AA4000163B7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8C9BA01E381AA4000163B7 /* LoginViewController.swift */; };
+		AC8C9BA31E38DCBB000163B7 /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8C9BA21E38DCBB000163B7 /* SignUpTableViewController.swift */; };
 		ACDB7A1D1E3766C90052D834 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDB7A1C1E3766C90052D834 /* AppDelegate.swift */; };
 		ACDB7A241E3766C90052D834 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACDB7A221E3766C90052D834 /* Main.storyboard */; };
 		ACDB7A261E3766C90052D834 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACDB7A251E3766C90052D834 /* Assets.xcassets */; };
@@ -18,16 +23,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A73DBE94E7E8DB02D0B99E8 /* Pods-chatdpua.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chatdpua.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chatdpua/Pods-chatdpua.debug.xcconfig"; sourceTree = "<group>"; };
+		9380F1FCC8B244C55F01C1F6 /* Pods-chatdpua.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chatdpua.release.xcconfig"; path = "Pods/Target Support Files/Pods-chatdpua/Pods-chatdpua.release.xcconfig"; sourceTree = "<group>"; };
 		AC1AD33A1E37C8200062EFD1 /* SuperTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperTableViewCell.swift; sourceTree = "<group>"; };
 		AC1AD33C1E37C8AD0062EFD1 /* SuperTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperTableViewController.swift; sourceTree = "<group>"; };
 		AC1AD33E1E37FE830062EFD1 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		AC1AD3401E37FEB50062EFD1 /* ChatTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewController.swift; sourceTree = "<group>"; };
+		AC4A52A81E381085008971FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AC8C9B9E1E381552000163B7 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		AC8C9BA01E381AA4000163B7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AC8C9BA21E38DCBB000163B7 /* SignUpTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTableViewController.swift; sourceTree = "<group>"; };
 		ACDB7A191E3766C90052D834 /* chatdpua.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chatdpua.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACDB7A1C1E3766C90052D834 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACDB7A231E3766C90052D834 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ACDB7A251E3766C90052D834 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACDB7A281E3766C90052D834 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACDB7A2A1E3766C90052D834 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC38585C744FF3E295F8FEEF /* Pods_chatdpua.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chatdpua.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,15 +47,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C04FB2B7D32F65664AB119A /* Pods_chatdpua.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A5E3DA9E01CD8ACFA1FFDD5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1A73DBE94E7E8DB02D0B99E8 /* Pods-chatdpua.debug.xcconfig */,
+				9380F1FCC8B244C55F01C1F6 /* Pods-chatdpua.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9C2C88FD85BF7ED584A55786 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC38585C744FF3E295F8FEEF /* Pods_chatdpua.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AC1AD3371E37C6E90062EFD1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AC8C9BA21E38DCBB000163B7 /* SignUpTableViewController.swift */,
+				AC8C9BA01E381AA4000163B7 /* LoginViewController.swift */,
 				AC1AD33C1E37C8AD0062EFD1 /* SuperTableViewController.swift */,
 				AC1AD3401E37FEB50062EFD1 /* ChatTableViewController.swift */,
 			);
@@ -70,6 +102,7 @@
 		AC1AD3421E37FEDA0062EFD1 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				AC4A52A81E381085008971FC /* GoogleService-Info.plist */,
 				ACDB7A1C1E3766C90052D834 /* AppDelegate.swift */,
 				ACDB7A271E3766C90052D834 /* LaunchScreen.storyboard */,
 				ACDB7A2A1E3766C90052D834 /* Info.plist */,
@@ -80,6 +113,7 @@
 		AC1AD3431E37FFAD0062EFD1 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				AC8C9B9E1E381552000163B7 /* Post.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -89,6 +123,8 @@
 			children = (
 				AC1AD3381E37C7320062EFD1 /* wtf */,
 				ACDB7A1A1E3766C90052D834 /* Products */,
+				8A5E3DA9E01CD8ACFA1FFDD5 /* Pods */,
+				9C2C88FD85BF7ED584A55786 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,9 +156,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ACDB7A2D1E3766C90052D834 /* Build configuration list for PBXNativeTarget "chatdpua" */;
 			buildPhases = (
+				FBC2BAE769A13E0E37FCEFD2 /* [CP] Check Pods Manifest.lock */,
 				ACDB7A151E3766C90052D834 /* Sources */,
 				ACDB7A161E3766C90052D834 /* Frameworks */,
 				ACDB7A171E3766C90052D834 /* Resources */,
+				B024B2CD1A14307671708ACD /* [CP] Embed Pods Frameworks */,
+				9F8C7833D22608C5F3B40EBD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -146,6 +185,7 @@
 					ACDB7A181E3766C90052D834 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = ZNLBEN9CLK;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -173,6 +213,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC4A52A91E381085008971FC /* GoogleService-Info.plist in Resources */,
 				ACDB7A291E3766C90052D834 /* LaunchScreen.storyboard in Resources */,
 				ACDB7A261E3766C90052D834 /* Assets.xcassets in Resources */,
 				ACDB7A241E3766C90052D834 /* Main.storyboard in Resources */,
@@ -181,6 +222,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9F8C7833D22608C5F3B40EBD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-chatdpua/Pods-chatdpua-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B024B2CD1A14307671708ACD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-chatdpua/Pods-chatdpua-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FBC2BAE769A13E0E37FCEFD2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ACDB7A151E3766C90052D834 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -188,7 +277,10 @@
 			files = (
 				AC1AD33D1E37C8AD0062EFD1 /* SuperTableViewController.swift in Sources */,
 				AC1AD33B1E37C8200062EFD1 /* SuperTableViewCell.swift in Sources */,
+				AC8C9BA31E38DCBB000163B7 /* SignUpTableViewController.swift in Sources */,
 				AC1AD33F1E37FE830062EFD1 /* ChatTableViewCell.swift in Sources */,
+				AC8C9B9F1E381552000163B7 /* Post.swift in Sources */,
+				AC8C9BA11E381AA4000163B7 /* LoginViewController.swift in Sources */,
 				ACDB7A1D1E3766C90052D834 /* AppDelegate.swift in Sources */,
 				AC1AD3411E37FEB50062EFD1 /* ChatTableViewController.swift in Sources */,
 			);
@@ -256,7 +348,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -300,7 +392,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -311,21 +403,28 @@
 		};
 		ACDB7A2E1E3766C90052D834 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A73DBE94E7E8DB02D0B99E8 /* Pods-chatdpua.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = ZNLBEN9CLK;
 				INFOPLIST_FILE = chatdpua/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pq.chatdpua;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		ACDB7A2F1E3766C90052D834 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9380F1FCC8B244C55F01C1F6 /* Pods-chatdpua.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = ZNLBEN9CLK;
 				INFOPLIST_FILE = chatdpua/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

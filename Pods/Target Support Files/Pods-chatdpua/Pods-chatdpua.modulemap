@@ -1,0 +1,6 @@
+framework module Pods_chatdpua {
+  umbrella header "Pods-chatdpua-umbrella.h"
+
+  export *
+  module * { export * }
+}
