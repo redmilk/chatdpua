@@ -56,5 +56,9 @@ class ChatTableViewController: UIViewController, UITableViewDelegate, UITableVie
         guard textField.text != "" else {return}
     }
    
+    @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 
 }

@@ -34,6 +34,21 @@ func delay(seconds: Double, completion:@escaping ()->()) {
     }
 }
 
+// MARK: SHOW ALERT
+//show alert view if error
+func showAlert(title: String, msg: String) {
+    let alert = PCLBlurEffectAlert.Controller(title: "\(title)", message: "\(msg)", effect: UIBlurEffect(style: .dark), style: .actionSheet)
+    let action = PCLBlurEffectAlert.AlertAction(title: "Cancel", style: .cancel, handler: { (act) in
+        //cancel button on alertview, setLogin button to initial state
+    })
+    
+    alert.addAction(action)
+    alert.configure(cornerRadius: 10)
+    alert.configure(overlayBackgroundColor: UIColor(colorLiteralRed: 0, green: 0, blue: 30, alpha: 0.4))
+    alert.configure(messageFont: UIFont(name: "HelveticaNeue", size: 18.0)!, messageColor: UIColor.white)
+    alert.show()
+}
+
 class LoginViewController: UIViewController {
     
     // MARK: IB outlets
@@ -51,6 +66,8 @@ class LoginViewController: UIViewController {
     
     // MARK: further UI
     
+    var particleEmitter: CAEmitterLayer!
+    
     let spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     let status = UIImageView(image: UIImage(named: "banner"))
     let label = UILabel()
@@ -66,13 +83,22 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setInitalStateOfAnimatedItems()
+        password.text = ""
+        password.placeholder = "password"
+        spinner.alpha = 0.0
+        signUpButton.alpha = 1.0
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.particleEmitter.removeAllAnimations()
+        print("animations removed (particles)")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        playAnimationOnViewDidLoad()
         particles()
+        spinner.startAnimating()
     }
     
     // MARK: further methods
@@ -85,20 +111,7 @@ class LoginViewController: UIViewController {
         
     }
     
-    //show alert view if error
-    func showAlert(title: String, msg: String) {
-        
-        let alert = PCLBlurEffectAlert.Controller(title: "\(title)", message: "\(msg)", effect: UIBlurEffect(style: .dark), style: .alert)
-        let action = PCLBlurEffectAlert.AlertAction(title: "Cancel", style: .cancel, handler: { (act) in
-            //cancel button on alertview, setLogin button to initial state
-            self.setLoginButtonToInitalState()
-        })
-        
-        alert.addAction(action)
-        alert.configure(cornerRadius: 10)
-        alert.configure(overlayBackgroundColor: UIColor(colorLiteralRed: 0, green: 0, blue: 30, alpha: 0.3))
-        alert.show()
-    }
+    
     
     //try to auth and processing indicator show
     func setLoginButtonToProcessingAuthState() {
@@ -142,11 +155,14 @@ class LoginViewController: UIViewController {
         
         FIRAuth.auth()?.signIn(withEmail: self.username.text!, password: self.password.text!, completion: { (user, error) in
             if error != nil {
-                // alert view
-                self.showAlert(title: "Error", msg: error!.localizedDescription)
+                /// alert view
+                self.setLoginButtonToInitalState()
+                showAlert(title: "Error", msg: error!.localizedDescription)
             }
-            if let _ = user {       //login succeed
-                let usersViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC")
+            if let _ = user {       //login succeed\
+                self.spinner.stopAnimating()
+                self.spinner.alpha = 0.0
+                let usersViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC")
                 self.present(usersViewController, animated: true, completion: nil)
             }
         })
@@ -159,7 +175,6 @@ class LoginViewController: UIViewController {
         loginButton.layer.cornerRadius = 8.0
         loginButton.layer.masksToBounds = true
         spinner.frame = CGRect(x: -20.0, y: 6.0, width: 20.0, height: 20.0)
-        spinner.startAnimating()
         spinner.alpha = 0.0
         loginButton.addSubview(spinner)
         status.isHidden = true
@@ -172,59 +187,10 @@ class LoginViewController: UIViewController {
         status.addSubview(label)
     }
     
-    //set initial statements of objects which will be animated
-    func setInitalStateOfAnimatedItems() {
-        heading.center.x  -= view.bounds.width
-        username.center.x -= view.bounds.width
-        password.center.x -= view.bounds.width
-        cloud1.alpha = 0.0
-        cloud2.alpha = 0.0
-        cloud3.alpha = 0.0
-        cloud4.alpha = 0.0
-        loginButton.center.y += 30.0
-        loginButton.alpha = 0.0
-        signUpButton.center.y += loginButton.frame.height + 30.0
-        signUpButton.alpha = 0.0
-    }
-    
-    // play all animations on login screen
-    func playAnimationOnViewDidLoad() {
-        UIView.animate(withDuration: 0.5, animations: {
-            self.heading.center.x += self.view.bounds.width
-        })
-        UIView.animate(withDuration: 0.5, delay: 0.3, options: [], animations: {
-            self.username.center.x += self.view.bounds.width
-        }, completion: nil)
-        UIView.animate(withDuration: 0.5, delay: 0.4, options: [], animations: {
-            self.password.center.x += self.view.bounds.width
-        }, completion: nil)
-        UIView.animate(withDuration: 0.5, delay: 0.5, options: [], animations: {
-            self.cloud1.alpha = 1.0
-        }, completion: nil)
-        UIView.animate(withDuration: 0.5, delay: 0.5, options: [], animations: {
-            self.cloud1.alpha = 1.0
-        }, completion: nil)
-        UIView.animate(withDuration: 0.5, delay: 0.7, options: [], animations: {
-            self.cloud2.alpha = 1.0
-        }, completion: nil)
-        UIView.animate(withDuration: 0.5, delay: 0.9, options: [], animations: {
-            self.cloud3.alpha = 1.0
-        }, completion: nil)
-        UIView.animate(withDuration: 0.5, delay: 1.1, options: [], animations: {
-            self.cloud4.alpha = 1.0
-        }, completion: nil)
-        UIView.animate(withDuration: 0.5, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: [], animations: {
-            self.loginButton.center.y -= 30.0
-            self.loginButton.alpha = 1.0
-            
-            self.signUpButton.center.y -= self.loginButton.frame.height + 30.0
-            self.signUpButton.alpha = 1.0
 
-        }, completion: nil)
-    }
     
     @IBAction func signUpPressed(_ sender: UIButton) {
-
+        
     }
     
     
@@ -262,6 +228,7 @@ class LoginViewController: UIViewController {
         emitterCell.alphaRange = 0.75
         emitterCell.alphaSpeed = -0.15
         emitterCell.lifetimeRange = 3.5
+        self.particleEmitter = emitter
     }
     
     
