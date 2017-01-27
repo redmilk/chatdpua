@@ -8,8 +8,6 @@
 
 import UIKit
 import CoreData
-import FirebaseStorage
-import FirebaseDatabase
 import FirebaseAuth
 
 class SignUpTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
@@ -24,17 +22,11 @@ class SignUpTableViewController: UITableViewController, UIImagePickerControllerD
     @IBOutlet var yesButton:UIButton!
     @IBOutlet var noButton:UIButton!
     
-    var refToStorageWithUsers: FIRStorageReference!
-    var refToDataBase: FIRDatabaseReference!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // MARK: - VIEW DID LOAD
-        let storage = FIRStorage.storage().reference(forURL: "gs://chatdpua.appspot.com")
-        refToStorageWithUsers = storage.child("users")
-        refToDataBase = FIRDatabase.database().reference()
-        
+                
         nameTextField.delegate = self
         emailTextField.delegate = self
         pwd1TextField.delegate = self
@@ -126,7 +118,7 @@ class SignUpTableViewController: UITableViewController, UIImagePickerControllerD
                     changeRequest.displayName = name
                     changeRequest.commitChanges(completion: nil)
                     //sozdaem ssilku v storage, so znacheniem user id, tam budet hranitsya kartinka, pod imenem id usera
-                    let imageRef = self.refToStorageWithUsers.child("\(user.uid)")
+                    let imageRef = refToStorageWithUsers.child("\(user.uid)")
                     //szhat kartinku, --> data
                     let imageFromImageView = UIImageJPEGRepresentation(self.imageView.image!, 0.5)
                     //vigruzit ee v hranilishe
@@ -152,16 +144,14 @@ class SignUpTableViewController: UITableViewController, UIImagePickerControllerD
                                 
                                 //sozdaem v data base vkladku users/HjhdSjlK34H8jsd 'userID'
                                 //teper nuzhno prikrepit k yuzeru kotoriy tolko chto zaregistrirovalsya eto infu v database
-                                self.refToDataBase.child("users").child(user.uid).setValue(userInfo)
-                                
-                                //perehodim dalshe v osnovnoi view controller
-                                let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC")
-                                self.present(mainVC, animated: true, completion: nil)
+                                refToDataBaseWithUsers.child(user.uid).setValue(userInfo)
                             }
                         })
                     })
                     //nachat zagruzku?
                     uploadTask.resume()
+                    ///segue
+                    self.performSegue(withIdentifier: "showMainView", sender: nil)
                 }
             })
         }

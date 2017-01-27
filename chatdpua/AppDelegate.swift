@@ -8,6 +8,17 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
+
+var refToDataBaseWithUsers: FIRDatabaseReference!
+var refToStorageWithUsers: FIRStorageReference!
+
+var refToStorageWithPosts: FIRStorageReference!
+var refToDataBaseWithPosts: FIRDatabaseReference!
+
+var ref: FIRDatabaseReference!
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +28,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        ///firebase
         FIRApp.configure()
+        let storage = FIRStorage.storage().reference(forURL: "gs://chatdpua.appspot.com")
+        refToStorageWithUsers = storage.child("users")
+        refToDataBaseWithUsers = FIRDatabase.database().reference().child("users")
+        
+        refToStorageWithPosts = storage.child("posts")
+        refToDataBaseWithPosts = FIRDatabase.database().reference().child("posts")
+        
+        ref = FIRDatabase.database().reference()
+        
         return true
     }
 

@@ -1,20 +1,20 @@
 //
-//  ChatTableViewCell.swift
+//  UsersTableViewCell.swift
 //  chatdpua
 //
-//  Created by Artem on 1/24/17.
+//  Created by Artem on 1/26/17.
 //  Copyright © 2017 ApiqA. All rights reserved.
 //
 
 import UIKit
 
-class ChatTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var message: UILabel!
+class UsersTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userInfo: UILabel!
     
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

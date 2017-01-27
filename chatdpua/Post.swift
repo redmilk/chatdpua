@@ -9,5 +9,8 @@
 import Foundation
 
 class Post {
-    
+    var postID: String!
+    var author: String!
+    var message: String!
+    var userID: String!
 }
