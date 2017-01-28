@@ -8,7 +8,7 @@
 
 import Foundation
 
-class User {
+class User : NSObject {
     var name: String!
     var userID: String!
     var avatar: String!

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Post {
+class Post : NSObject {
     var postID: String!
     var author: String!
     var message: String!

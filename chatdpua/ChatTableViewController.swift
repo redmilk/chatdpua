@@ -57,7 +57,6 @@ class ChatTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("DEBUG: \(posts.count) - numberOfRowsInSection")
         return posts.count
     }
     
@@ -144,7 +143,6 @@ class ChatTableViewController: UIViewController, UITableViewDelegate, UITableVie
         /*refToDataBaseWithPosts*/
         ref.child("posts").queryOrderedByKey().observeSingleEvent(of: .value, with: { (snapshot) in
             self.posts.removeAll()
-            
             let posts = snapshot.value as! [String : AnyObject]
             for(_, value) in posts {
                 if let retrievedPost = value as? [String : Any] {

@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
 
 extension UIImageView {
     func downloadImage(from imgURL: String!) {
@@ -37,13 +38,16 @@ class UsersTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var users = [User]()
     
+    override func viewWillAppear(_ animated: Bool) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // MARK: - view did load
-        tableView.delegate = self
-        tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         
-        retrieveUsers()
+        self.retrieveUsers()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -68,9 +72,9 @@ class UsersTableViewController: UIViewController, UITableViewDelegate, UITableVi
     // MARK: - methods
     func retrieveUsers() {
         // MARK: - retrieve from firebase
-        refToDataBaseWithUsers.queryOrderedByKey().observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("users").queryOrderedByKey().observeSingleEvent(of: .value, with: { (snapshot) in
             self.users.removeAll()
-            let users: [String : AnyObject] = snapshot.value as! [String : AnyObject]
+            let users = snapshot.value as! [String : AnyObject]
             for(_, user) in users {
                 if let uid = user["uid"] as? String {
                     if uid != FIRAuth.auth()!.currentUser!.uid {
@@ -85,8 +89,8 @@ class UsersTableViewController: UIViewController, UITableViewDelegate, UITableVi
                     }
                 }
             }
-        self.tableView.reloadData()
+            self.tableView.reloadData()
         })
-        refToDataBaseWithUsers.removeAllObservers()
+        ref.removeAllObservers()
     }
 }
