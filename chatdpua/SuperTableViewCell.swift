@@ -19,6 +19,8 @@ class SuperTableViewCell: UITableViewCell, UITableViewDataSource, UITableViewDel
     
     @IBOutlet weak var tableView: UITableView!
     
+    var gradient: CAGradientLayer!
+    
     var comments = [String]()
     var postID: String!
     
@@ -31,14 +33,14 @@ class SuperTableViewCell: UITableViewCell, UITableViewDataSource, UITableViewDel
         
         tableView.delegate = self
         tableView.dataSource = self
-        // Initialization code
+        // Initialization code        
     }
     
     @IBAction func sendButtonPressed(_ sender: UIButton) {
         if inputTextField.text != "" {
             let keyToComment = ref.child("vs").child("posts").childByAutoId().key
             ref.child("vs").child("posts").child(postID).observeSingleEvent(of: .value, with: { (snapshot) in
-                 if let postSnapshot = snapshot.value as? [String : AnyObject] {
+                 if let _ = snapshot.value as? [String : AnyObject] {
                     let updateComments: [String : Any] = ["comments/\(keyToComment)": self.inputTextField.text!]
                     ref.child("vs").child("posts").child(self.postID).updateChildValues(updateComments)
                     self.comments.append(self.inputTextField.text!)
@@ -47,6 +49,10 @@ class SuperTableViewCell: UITableViewCell, UITableViewDataSource, UITableViewDel
             })
             ref.removeAllObservers()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

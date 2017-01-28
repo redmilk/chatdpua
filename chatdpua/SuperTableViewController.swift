@@ -9,6 +9,21 @@
 import UIKit
 import FirebaseDatabase
 
+
+@IBDesignable class GradientView: UIView {
+    @IBInspectable var firstColor: UIColor = UIColor.white
+    @IBInspectable var secondColor: UIColor = UIColor.black
+    
+    override class var layerClass: AnyClass {
+        return CAGradientLayer.self
+    }
+    
+    override func layoutSubviews() {
+        (layer as! CAGradientLayer).colors = [firstColor.cgColor, secondColor.cgColor]
+    }
+}
+
+
 class SuperTableViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
@@ -16,6 +31,7 @@ class SuperTableViewController: UIViewController,  UITableViewDelegate, UITableV
     var dataBaseHandle: FIRDatabaseHandle?
     
     var vsPosts = [VS]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,6 +105,17 @@ class SuperTableViewController: UIViewController,  UITableViewDelegate, UITableV
         cell.labelTwo = vsPosts[indexPath.row].labelTwo
         //inner use
         cell.postID = vsPosts[indexPath.row].postID
+
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.blue.cgColor, UIColor.red.cgColor]
+        gradient.locations = [0.0 , 0.5]
+        gradient.startPoint = CGPoint(x: 0.0, y: 1.0)
+        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradient.frame = CGRect(x: 0.0, y: 0.0, width: cell.contentView.frame.size.width, height: cell.contentView.frame.size.height)
+        gradient.zPosition = -10
+        cell.gradient = gradient
+        cell.contentView.layer.addSublayer(gradient)
+        
         return cell
     }
     

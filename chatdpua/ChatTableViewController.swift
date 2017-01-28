@@ -22,7 +22,7 @@ class ChatTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     //properties
     var posts = [Post]()
-    
+
     ///methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +33,8 @@ class ChatTableViewController: UIViewController, UITableViewDelegate, UITableVie
         //self-resizing cells
         tableView.estimatedRowHeight = 50.0
         tableView.rowHeight = UITableViewAutomaticDimension
-        
+        setTableViewBackgroundGradient(UIColor.blue, UIColor.white)
         retrievePosts()
-        
-       
         
         /*NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
         
@@ -66,6 +64,14 @@ class ChatTableViewController: UIViewController, UITableViewDelegate, UITableVie
         cell!.name.text = posts[indexPath.row].author
         cell!.message.text = posts[indexPath.row].message
         // user image
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.blue.cgColor, UIColor.red.cgColor]
+        gradient.locations = [0.0 , 0.5]
+        gradient.startPoint = CGPoint(x: 0.0, y: 1.0)
+        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradient.frame = CGRect(x: 0.0, y: 0.0, width: cell!.contentView.frame.size.width, height: cell!.contentView.frame.size.height)
+        gradient.zPosition = -10
+        cell!.contentView.layer.addSublayer(gradient)
         
         return cell!
     }
@@ -159,5 +165,21 @@ class ChatTableViewController: UIViewController, UITableViewDelegate, UITableVie
             self.tableView.reloadData()
         })
         ref.removeAllObservers()
+    }
+    
+    func setTableViewBackgroundGradient(_ topColor:UIColor, _ bottomColor:UIColor) {
+        
+        let gradientBackgroundColors = [topColor.cgColor, bottomColor.cgColor]
+        let gradientLocations = [0.0,1.0] 
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = gradientBackgroundColors
+        gradientLayer.locations = gradientLocations as [NSNumber]!
+        
+        gradientLayer.frame = self.tableView.bounds
+        let backgroundView = UIView(frame: self.tableView.bounds)
+        backgroundView.layer.insertSublayer(gradientLayer, at: 0)
+        ///
+        self.tableView.backgroundView = backgroundView
     }
 }
