@@ -8,10 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		7C04FB2B7D32F65664AB119A /* Pods_chatdpua.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC38585C744FF3E295F8FEEF /* Pods_chatdpua.framework */; };
-		AC1AD33B1E37C8200062EFD1 /* SuperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1AD33A1E37C8200062EFD1 /* SuperTableViewCell.swift */; };
-		AC1AD33D1E37C8AD0062EFD1 /* SuperTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1AD33C1E37C8AD0062EFD1 /* SuperTableViewController.swift */; };
+		AC1AD33B1E37C8200062EFD1 /* VSCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1AD33A1E37C8200062EFD1 /* VSCollectionViewCell.swift */; };
 		AC1AD33F1E37FE830062EFD1 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1AD33E1E37FE830062EFD1 /* ChatTableViewCell.swift */; };
 		AC1AD3411E37FEB50062EFD1 /* ChatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1AD3401E37FEB50062EFD1 /* ChatTableViewController.swift */; };
+		AC24CC301E46652700E3331C /* VersusCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24CC2F1E46652700E3331C /* VersusCollectionViewController.swift */; };
+		AC24CC321E466A6900E3331C /* DateSortable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24CC311E466A6900E3331C /* DateSortable.swift */; };
+		AC24CC341E466A9900E3331C /* NSObject+IGListDiffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24CC331E466A9900E3331C /* NSObject+IGListDiffable.swift */; };
+		AC24CC361E466F5F00E3331C /* VersusSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24CC351E466F5F00E3331C /* VersusSectionController.swift */; };
+		AC24CC391E46728C00E3331C /* VersusGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24CC381E46728C00E3331C /* VersusGenerator.swift */; };
+		AC24CC3B1E46806200E3331C /* VersusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24CC3A1E46806200E3331C /* VersusCell.swift */; };
+		AC24CC3D1E4686B000E3331C /* VSCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24CC3C1E4686B000E3331C /* VSCollectionViewController.swift */; };
 		AC4A52A91E381085008971FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC4A52A81E381085008971FC /* GoogleService-Info.plist */; };
 		AC8C9B9F1E381552000163B7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8C9B9E1E381552000163B7 /* Post.swift */; };
 		AC8C9BA11E381AA4000163B7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8C9BA01E381AA4000163B7 /* LoginViewController.swift */; };
@@ -23,7 +29,7 @@
 		ACDB7A241E3766C90052D834 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACDB7A221E3766C90052D834 /* Main.storyboard */; };
 		ACDB7A261E3766C90052D834 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACDB7A251E3766C90052D834 /* Assets.xcassets */; };
 		ACDB7A291E3766C90052D834 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACDB7A271E3766C90052D834 /* LaunchScreen.storyboard */; };
-		ACE209431E3B8BF600663FF1 /* SuperCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE209421E3B8BF600663FF1 /* SuperCommentTableViewCell.swift */; };
+		ACE209431E3B8BF600663FF1 /* VSCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE209421E3B8BF600663FF1 /* VSCommentTableViewCell.swift */; };
 		ACE209451E3B9EC900663FF1 /* VS.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE209441E3B9EC900663FF1 /* VS.swift */; };
 		ACE209471E3BB3A400663FF1 /* MakeVSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE209461E3BB3A400663FF1 /* MakeVSViewController.swift */; };
 /* End PBXBuildFile section */
@@ -31,10 +37,17 @@
 /* Begin PBXFileReference section */
 		1A73DBE94E7E8DB02D0B99E8 /* Pods-chatdpua.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chatdpua.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chatdpua/Pods-chatdpua.debug.xcconfig"; sourceTree = "<group>"; };
 		9380F1FCC8B244C55F01C1F6 /* Pods-chatdpua.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chatdpua.release.xcconfig"; path = "Pods/Target Support Files/Pods-chatdpua/Pods-chatdpua.release.xcconfig"; sourceTree = "<group>"; };
-		AC1AD33A1E37C8200062EFD1 /* SuperTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperTableViewCell.swift; sourceTree = "<group>"; };
-		AC1AD33C1E37C8AD0062EFD1 /* SuperTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperTableViewController.swift; sourceTree = "<group>"; };
+		AC1AD33A1E37C8200062EFD1 /* VSCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSCollectionViewCell.swift; sourceTree = "<group>"; };
 		AC1AD33E1E37FE830062EFD1 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		AC1AD3401E37FEB50062EFD1 /* ChatTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewController.swift; sourceTree = "<group>"; };
+		AC24CC2C1E465C4200E3331C /* chatdpua-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chatdpua-Bridging-Header.h"; sourceTree = "<group>"; };
+		AC24CC2F1E46652700E3331C /* VersusCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersusCollectionViewController.swift; sourceTree = "<group>"; };
+		AC24CC311E466A6900E3331C /* DateSortable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateSortable.swift; sourceTree = "<group>"; };
+		AC24CC331E466A9900E3331C /* NSObject+IGListDiffable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+IGListDiffable.swift"; sourceTree = "<group>"; };
+		AC24CC351E466F5F00E3331C /* VersusSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersusSectionController.swift; sourceTree = "<group>"; };
+		AC24CC381E46728C00E3331C /* VersusGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersusGenerator.swift; sourceTree = "<group>"; };
+		AC24CC3A1E46806200E3331C /* VersusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersusCell.swift; sourceTree = "<group>"; };
+		AC24CC3C1E4686B000E3331C /* VSCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSCollectionViewController.swift; sourceTree = "<group>"; };
 		AC4A52A81E381085008971FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC8C9B9E1E381552000163B7 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		AC8C9BA01E381AA4000163B7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +61,7 @@
 		ACDB7A251E3766C90052D834 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACDB7A281E3766C90052D834 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACDB7A2A1E3766C90052D834 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ACE209421E3B8BF600663FF1 /* SuperCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperCommentTableViewCell.swift; sourceTree = "<group>"; };
+		ACE209421E3B8BF600663FF1 /* VSCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSCommentTableViewCell.swift; sourceTree = "<group>"; };
 		ACE209441E3B9EC900663FF1 /* VS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VS.swift; sourceTree = "<group>"; };
 		ACE209461E3BB3A400663FF1 /* MakeVSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeVSViewController.swift; sourceTree = "<group>"; };
 		FC38585C744FF3E295F8FEEF /* Pods_chatdpua.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chatdpua.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,12 +99,14 @@
 		AC1AD3371E37C6E90062EFD1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AC24CC3C1E4686B000E3331C /* VSCollectionViewController.swift */,
 				AC8C9BA21E38DCBB000163B7 /* SignUpTableViewController.swift */,
 				AC8C9BA01E381AA4000163B7 /* LoginViewController.swift */,
-				AC1AD33C1E37C8AD0062EFD1 /* SuperTableViewController.swift */,
 				AC1AD3401E37FEB50062EFD1 /* ChatTableViewController.swift */,
 				ACC8622E1E3A320800B69DC8 /* UsersTableViewController.swift */,
 				ACE209461E3BB3A400663FF1 /* MakeVSViewController.swift */,
+				AC24CC2F1E46652700E3331C /* VersusCollectionViewController.swift */,
+				AC24CC351E466F5F00E3331C /* VersusSectionController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -107,10 +122,11 @@
 		AC1AD3391E37C7D70062EFD1 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
-				AC1AD33A1E37C8200062EFD1 /* SuperTableViewCell.swift */,
+				AC24CC3A1E46806200E3331C /* VersusCell.swift */,
+				AC1AD33A1E37C8200062EFD1 /* VSCollectionViewCell.swift */,
 				AC1AD33E1E37FE830062EFD1 /* ChatTableViewCell.swift */,
 				ACC862301E3A3C3D00B69DC8 /* UsersTableViewCell.swift */,
-				ACE209421E3B8BF600663FF1 /* SuperCommentTableViewCell.swift */,
+				ACE209421E3B8BF600663FF1 /* VSCommentTableViewCell.swift */,
 			);
 			name = CustomCell;
 			sourceTree = "<group>";
@@ -122,6 +138,7 @@
 				AC4A52A81E381085008971FC /* GoogleService-Info.plist */,
 				ACDB7A271E3766C90052D834 /* LaunchScreen.storyboard */,
 				ACDB7A2A1E3766C90052D834 /* Info.plist */,
+				AC24CC2C1E465C4200E3331C /* chatdpua-Bridging-Header.h */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -129,11 +146,21 @@
 		AC1AD3431E37FFAD0062EFD1 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				AC24CC331E466A9900E3331C /* NSObject+IGListDiffable.swift */,
 				AC8C9B9E1E381552000163B7 /* Post.swift */,
 				ACC862321E3A414C00B69DC8 /* User.swift */,
 				ACE209441E3B9EC900663FF1 /* VS.swift */,
+				AC24CC311E466A6900E3331C /* DateSortable.swift */,
 			);
 			name = Objects;
+			sourceTree = "<group>";
+		};
+		AC24CC371E46725000E3331C /* Systems */ = {
+			isa = PBXGroup;
+			children = (
+				AC24CC381E46728C00E3331C /* VersusGenerator.swift */,
+			);
+			name = Systems;
 			sourceTree = "<group>";
 		};
 		ACDB7A101E3766C90052D834 = {
@@ -157,6 +184,7 @@
 		ACDB7A1B1E3766C90052D834 /* chatdpua */ = {
 			isa = PBXGroup;
 			children = (
+				AC24CC371E46725000E3331C /* Systems */,
 				AC1AD3431E37FFAD0062EFD1 /* Objects */,
 				ACDB7A251E3766C90052D834 /* Assets.xcassets */,
 				AC1AD3391E37C7D70062EFD1 /* CustomCell */,
@@ -293,17 +321,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC1AD33D1E37C8AD0062EFD1 /* SuperTableViewController.swift in Sources */,
-				AC1AD33B1E37C8200062EFD1 /* SuperTableViewCell.swift in Sources */,
+				AC24CC361E466F5F00E3331C /* VersusSectionController.swift in Sources */,
+				AC1AD33B1E37C8200062EFD1 /* VSCollectionViewCell.swift in Sources */,
 				ACC8622F1E3A320800B69DC8 /* UsersTableViewController.swift in Sources */,
-				ACE209431E3B8BF600663FF1 /* SuperCommentTableViewCell.swift in Sources */,
+				ACE209431E3B8BF600663FF1 /* VSCommentTableViewCell.swift in Sources */,
+				AC24CC341E466A9900E3331C /* NSObject+IGListDiffable.swift in Sources */,
 				AC8C9BA31E38DCBB000163B7 /* SignUpTableViewController.swift in Sources */,
+				AC24CC3D1E4686B000E3331C /* VSCollectionViewController.swift in Sources */,
 				ACC862311E3A3C3D00B69DC8 /* UsersTableViewCell.swift in Sources */,
+				AC24CC301E46652700E3331C /* VersusCollectionViewController.swift in Sources */,
+				AC24CC321E466A6900E3331C /* DateSortable.swift in Sources */,
 				AC1AD33F1E37FE830062EFD1 /* ChatTableViewCell.swift in Sources */,
+				AC24CC3B1E46806200E3331C /* VersusCell.swift in Sources */,
 				AC8C9B9F1E381552000163B7 /* Post.swift in Sources */,
 				AC8C9BA11E381AA4000163B7 /* LoginViewController.swift in Sources */,
 				ACDB7A1D1E3766C90052D834 /* AppDelegate.swift in Sources */,
 				AC1AD3411E37FEB50062EFD1 /* ChatTableViewController.swift in Sources */,
+				AC24CC391E46728C00E3331C /* VersusGenerator.swift in Sources */,
 				ACE209471E3BB3A400663FF1 /* MakeVSViewController.swift in Sources */,
 				ACC862331E3A414C00B69DC8 /* User.swift in Sources */,
 				ACE209451E3B9EC900663FF1 /* VS.swift in Sources */,
@@ -437,6 +471,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pq.chatdpua;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "chatdpua/chatdpua-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -454,6 +489,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pq.chatdpua;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "chatdpua/chatdpua-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

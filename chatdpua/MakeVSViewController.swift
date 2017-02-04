@@ -126,7 +126,6 @@ class MakeVSViewController: UIViewController, UIImagePickerControllerDelegate, U
                                 //insert in posts -> post feed
                                 ref.child("vs").child("posts").updateChildValues(postFeed)
                                 AppDelegate.instance().dismissActivityIndicator()
-                                self.dismiss(animated: true, completion: nil)
                             }
                         })
                     })
@@ -139,13 +138,4 @@ class MakeVSViewController: UIViewController, UIImagePickerControllerDelegate, U
                 /**/
         //creating our post's data
     }
-    
-    
-    @IBAction func cancelButtonPressed(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    
-    
-    
 }

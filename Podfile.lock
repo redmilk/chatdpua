@@ -44,14 +44,20 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.8)
+  - IGListKit (2.0.0)
   - PCLBlurEffectAlert (1.1.0)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - IGListKit (~> 2.0.0)
   - PCLBlurEffectAlert
+  - SDWebImage
 
 SPEC CHECKSUMS:
   Firebase: b8134e285eb33201115bc688bc5d7f112923bc1f
@@ -65,8 +71,10 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
+  IGListKit: ee255e4e61865bc3e01ca96b690c5435c2887849
   PCLBlurEffectAlert: cf9fe1d142dad012fe806b96844e2cf72e0bd366
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: cc3e326f1dbaccb22352bfbfe6dd0f0ef32e5386
+PODFILE CHECKSUM: a280ff779783e0ff313c1d298d7200c54c8a8ba4
 
 COCOAPODS: 1.1.1

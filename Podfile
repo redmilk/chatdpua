@@ -12,5 +12,7 @@ pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'Firebase/Storage'
+pod 'IGListKit', '~> 2.0.0'
+pod "SDWebImage"
 
 end

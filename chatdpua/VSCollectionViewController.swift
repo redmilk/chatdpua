@@ -8,8 +8,9 @@
 
 import UIKit
 import FirebaseDatabase
+import IGListKit
 
-
+/*
 @IBDesignable class GradientView: UIView {
     @IBInspectable var firstColor: UIColor = UIColor.white
     @IBInspectable var secondColor: UIColor = UIColor.black
@@ -24,14 +25,13 @@ import FirebaseDatabase
 }
 
 
-class SuperTableViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource {
+class VSCollectionViewController: UIViewController,  UICollectionViewDelegate, UICollectionViewDataSource {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var dataBaseHandle: FIRDatabaseHandle?
     
     var vsPosts = [VS]()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,9 +42,6 @@ class SuperTableViewController: UIViewController,  UITableViewDelegate, UITableV
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        
         retrieveVSPosts()
         
         ///ref.removeAllObservers()
@@ -52,30 +49,21 @@ class SuperTableViewController: UIViewController,  UITableViewDelegate, UITableV
             //add listener to our Posts, of event child Added
             //take the value from snapshot
             
-            
-            /// HE PA6OTAET
-            let posts = snapshot.value as? [String : AnyObject]
-            if let actualPosts = posts {
-                for(_, post) in actualPosts {
+            /// HE PA6OTAET //sobitie pri dobavlenii posta
+            let check = snapshot.value as? [String : AnyObject]
+            if let posts = check {
+                for(_, post) in posts {
                     if let author = post["author"] as? String, let header = post["header"] as? String, let userID = post["userID"] as? String, let likes = post["likes"] as? Int, let image1 = post["pathToImage1"] as? String, let image2 = post["pathToImage2"] as? String, let postID = post["postID"] as? String {
                         
-                        let vsPost = VS()
-                        vsPost.author = author
-                        vsPost.header = header
-                        vsPost.userID = userID
-                        vsPost.likes = likes
-                        vsPost.pathToImage1 = image1
-                        vsPost.pathToImage2 = image2
-                        vsPost.postID = postID
+                        let vsPost = VS(author: author, header: header, postID: postID, userID: userID, pathToImage1: image1, pathToImage2: image2, date: Date(timeIntervalSinceNow: -100), likes: likes)
                         vsPost.comments.append("My commentary from observe")
                         vsPost.comments.append("Commentary number two from observe adding")
                         self.vsPosts.append(vsPost)
-                        self.tableView.reloadData()
+                        //self.collectionView.reloadData()
                     }
                 }
             }
         })
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -83,19 +71,66 @@ class SuperTableViewController: UIViewController,  UITableViewDelegate, UITableV
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Table view data source
+    @IBAction func backPressed(_ sender: UIButton) {
+        print("back button pressed")
+    }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    
+    func retrieveVSPosts() {
+        ref.child("vs").child("posts").queryOrderedByKey().observeSingleEvent(of: .value, with: { (snap) in
+            //all posts
+            let postsSnap = snap.value as! [String : AnyObject]
+            //loop through posts
+            for(_, post) in postsSnap {
+                //take another properties from post
+                if let author = post["author"] as? String, let header = post["header"] as? String, let userID = post["userID"] as? String, let likes = post["likes"] as? Int, let image1 = post["pathToImage1"] as? String, let image2 = post["pathToImage2"] as? String, let postID = post["postID"] as? String {
+                    // create new post
+                    let vsPost = VS(author: author, header: header, postID: postID, userID: userID, pathToImage1: image1, pathToImage2: image2, date: Date(timeIntervalSinceNow: -100), likes: likes)
+                    //fetch comments
+                    if let comments = post["comments"] as? [String : AnyObject] {
+                        for(_, comment) in comments {
+                            vsPost.comments.append(comment as! String)
+                        }
+                    }
+                    //add that Post object into self [Post] array
+                    self.vsPosts.append(vsPost)
+                }
+            }
+            /// adapter update
+            //  adapter update
+            //self.collectionView.reloadData()
+        })
+        ref.child("vs").removeAllObservers()
+    }
+    
+    public func appendToArrayAndReloadTableView(vsPost: VS) {
+        vsPosts.append(vsPost)
+        collectionView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMakeVS" {
+            let destination = segue.destination as! MakeVSViewController
+            destination.appendAndReloadClosure = self.appendToArrayAndReloadTableView
+        }
+    }
+    
+    //numberOfSections
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (vsPosts.count != 0) ? vsPosts.count : 0
+    //numberOfItemsInSection
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return vsPosts.count
     }
     
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SuperTableViewCell
+    //cellForItemAtindexPath
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! VSCollectionViewCell
+        
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SuperTableViewCell
         cell.firstImageView.downloadImage(from: vsPosts[indexPath.row].pathToImage1)
         cell.secondImageView.downloadImage(from: vsPosts[indexPath.row].pathToImage2)
         //table view v yacheike table view eto vsegolish peredat massiv v yacheiku. lol
@@ -105,7 +140,7 @@ class SuperTableViewController: UIViewController,  UITableViewDelegate, UITableV
         cell.labelTwo = vsPosts[indexPath.row].labelTwo
         //inner use
         cell.postID = vsPosts[indexPath.row].postID
-
+        
         let gradient = CAGradientLayer()
         gradient.colors = [UIColor.blue.cgColor, UIColor.red.cgColor]
         gradient.locations = [0.0 , 0.5]
@@ -116,62 +151,10 @@ class SuperTableViewController: UIViewController,  UITableViewDelegate, UITableV
         cell.gradient = gradient
         cell.contentView.layer.addSublayer(gradient)
         
+        
+        
         return cell
     }
-    
-    
-    
-    @IBAction func backPressed(_ sender: UIButton) {
-        print("back button pressed")
-    }
-    
-    func backToThisController(segue: UIStoryboardSegue) {
-        
-    }
-    
-    func retrieveVSPosts() {
-        ref.child("vs").child("posts").queryOrderedByKey().observeSingleEvent(of: .value, with: { (snap) in
-            //all posts
-            let postsSnap = snap.value as! [String : AnyObject]
-            //loop through posts
-            for(_, post) in postsSnap {
-                //create new Post object
-                let vsPost = VS()
-                //take another properties from post
-                if let author = post["author"] as? String, let header = post["header"] as? String, let userID = post["userID"] as? String, let likes = post["likes"] as? Int, let image1 = post["pathToImage1"] as? String, let image2 = post["pathToImage2"] as? String, let postID = post["postID"] as? String {
-                    //fill Post object
-                    vsPost.author = author
-                    vsPost.header = header
-                    vsPost.userID = userID
-                    vsPost.likes = likes
-                    vsPost.pathToImage1 = image1
-                    vsPost.pathToImage2 = image2
-                    vsPost.postID = postID
-                    
-                    if let comments = post["comments"] as? [String : AnyObject] {
-                        for(_, comment) in comments {
-                            vsPost.comments.append(comment as! String)
-                        }
-                    }
-                    //add that Post object into self [Post] array
-                    self.vsPosts.append(vsPost)
-                }
-            }
-            self.tableView.reloadData()
-        })
-        //refresh table/collection view≥
-        ref.child("vs").removeAllObservers()
-    }
-    
-    public func appendToArrayAndReloadTableView(vsPost: VS) {
-        vsPosts.append(vsPost)
-        tableView.reloadData()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showMakeVS" {
-            let destination = segue.destination as! MakeVSViewController
-            destination.appendAndReloadClosure = self.appendToArrayAndReloadTableView
-        }
-    }
 }
+ 
+ */

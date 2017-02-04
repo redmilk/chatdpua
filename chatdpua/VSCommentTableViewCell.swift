@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SuperCommentTableViewCell: UITableViewCell {
+class VSCommentTableViewCell: UITableViewCell {
 
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!

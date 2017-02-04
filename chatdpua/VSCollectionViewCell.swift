@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SuperTableViewCell: UITableViewCell, UITableViewDataSource, UITableViewDelegate {
+class VSCollectionViewCell: UICollectionViewCell, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var firstImageView: UIImageView!
     @IBOutlet weak var secondImageView: UIImageView!
@@ -31,9 +31,9 @@ class SuperTableViewCell: UITableViewCell, UITableViewDataSource, UITableViewDel
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        // Initialization cod
         tableView.delegate = self
         tableView.dataSource = self
-        // Initialization code        
     }
     
     @IBAction func sendButtonPressed(_ sender: UIButton) {
@@ -64,8 +64,7 @@ class SuperTableViewCell: UITableViewCell, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SuperCommentTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! VSCommentTableViewCell
         cell.commentLabel.text = comments[indexPath.row]
         return cell
     }

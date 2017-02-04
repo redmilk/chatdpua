@@ -31,8 +31,9 @@ class ChatTableViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
         
         //self-resizing cells
-        tableView.estimatedRowHeight = 50.0
+        tableView.estimatedRowHeight = 10.0
         tableView.rowHeight = UITableViewAutomaticDimension
+        ///back gradient
         setTableViewBackgroundGradient(UIColor.blue, UIColor.white)
         retrievePosts()
         
@@ -47,6 +48,21 @@ class ChatTableViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.insertRows(at: [indexPath], with: .fade)
         tableView.endUpdates()
 
+    }
+    
+    //gradient setup
+    func setTableViewBackgroundGradient(_ topColor:UIColor, _ bottomColor:UIColor) {
+        
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.blue.cgColor, UIColor.green.cgColor, UIColor.blue.cgColor]
+        gradient.locations = [0.0 , 0.5, 1.0]
+        gradient.startPoint = CGPoint(x: 0.0, y: 1.0)
+        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradient.frame = self.tableView.bounds
+        let backgroundView = UIView(frame: self.tableView.bounds)
+        backgroundView.layer.insertSublayer(gradient, at: 0)
+        
+        self.tableView.backgroundView = backgroundView
     }
     
     ///delegate
@@ -98,8 +114,8 @@ class ChatTableViewController: UIViewController, UITableViewDelegate, UITableVie
             self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
         })
         
-        share.backgroundColor = UIColor.black
-        delete.backgroundColor = UIColor.magenta
+        //share.backgroundColor = UIColor.black
+        //delete.backgroundColor = UIColor.magenta
         
         return [share, delete]
     }
@@ -166,20 +182,5 @@ class ChatTableViewController: UIViewController, UITableViewDelegate, UITableVie
         })
         ref.removeAllObservers()
     }
-    
-    func setTableViewBackgroundGradient(_ topColor:UIColor, _ bottomColor:UIColor) {
-        
-        let gradientBackgroundColors = [topColor.cgColor, bottomColor.cgColor]
-        let gradientLocations = [0.0,1.0] 
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = gradientBackgroundColors
-        gradientLayer.locations = gradientLocations as [NSNumber]!
-        
-        gradientLayer.frame = self.tableView.bounds
-        let backgroundView = UIView(frame: self.tableView.bounds)
-        backgroundView.layer.insertSublayer(gradientLayer, at: 0)
-        ///
-        self.tableView.backgroundView = backgroundView
-    }
+  
 }
